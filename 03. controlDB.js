@@ -83,7 +83,7 @@ function get_excel_textRawNum(sheetName, raw, data){
   }
 }
 
-function sortSpreadsheet(sheetName){
+function sortSpreadsheet(sheetName, key){
   var spreadsheet = SpreadsheetApp.openById(sheet_id);
   var sheet = spreadsheet.getSheetByName(sheetName);
 
@@ -92,8 +92,7 @@ function sortSpreadsheet(sheetName){
 
   let data = sheet.getRange(2, 1, lr-1, lc);
 
-  //列Eを基準に降順でソートする
-  data.sort({column: 8, ascending: true});
+  data.sort({column: key, ascending: true});
 }
 
 function set_excel_style_all_rownum(sheetName, rawNum) {
